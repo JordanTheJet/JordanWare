@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial Black', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#game-container {
+    width: 800px;
+    height: 600px;
+    background: #1a1a2e;
+    border: 6px solid #f39c12;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* HUD */
+#hud {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    background: #16213e;
+    border-bottom: 4px solid #f39c12;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 100;
+}
+
+#score {
+    color: #f39c12;
+}
+
+#lives {
+    color: #e74c3c;
+}
+
+#difficulty {
+    color: #3498db;
+}
+
+/* Game Screen */
+#game-screen {
+    flex: 1;
+    position: relative;
+    background: #0f3460;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: opacity 0.3s;
+}
+
+.screen.hidden {
+    display: none;
+}
+
+/* Title Screen */
+#title-screen h1 {
+    font-size: 56px;
+    color: #f39c12;
+    text-shadow: 4px 4px 0 #000;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+#title-screen p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Buttons */
+button {
+    font-family: inherit;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 15px 40px;
+    background: #f39c12;
+    color: #fff;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-shadow: 2px 2px 0 #000;
+}
+
+button:hover {
+    background: #e67e22;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Transition Screen */
+#transition-screen {
+    background: #16213e;
+}
+
+#instruction-text {
+    font-size: 48px;
+    text-align: center;
+    color: #f39c12;
+    text-shadow: 3px 3px 0 #000;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Playing Screen */
+#playing-screen {
+    background: #0f3460;
+}
+
+/* Game Over Screen */
+#gameover-screen h1 {
+    font-size: 64px;
+    color: #e74c3c;
+    text-shadow: 4px 4px 0 #000;
+    margin-bottom: 30px;
+}
+
+#final-score {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* Timer Bar */
+#timer-container {
+    height: 20px;
+    background: #16213e;
+    border-top: 3px solid #f39c12;
+    overflow: hidden;
+}
+
+#timer-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #f39c12, #e74c3c);
+    width: 100%;
+    transition: width 0.1s linear;
+}
+
+/* Flash Effects */
+.flash-win {
+    animation: flashGreen 0.5s;
+}
+
+.flash-lose {
+    animation: flashRed 0.5s;
+}
+
+@keyframes flashGreen {
+    0%, 100% { background: #0f3460; }
+    50% { background: #27ae60; }
+}
+
+@keyframes flashRed {
+    0%, 100% { background: #0f3460; }
+    50% { background: #c0392b; }
+}
+
+/* Microgame Common Styles */
+.microgame-element {
+    position: absolute;
+    border-radius: 10px;
+    transition: all 0.1s;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    transform: scale(1.1);
+}

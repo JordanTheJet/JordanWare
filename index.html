@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarioWare Microgame Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- HUD -->
+        <div id="hud">
+            <div id="score">Score: 0</div>
+            <div id="lives">Lives: ❤️❤️❤️</div>
+            <div id="difficulty">Tier: 1</div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen">
+            <!-- Title Screen -->
+            <div id="title-screen" class="screen">
+                <h1>MICROGAME MANIA</h1>
+                <p>Survive as many microgames as you can!</p>
+                <button id="start-button">START</button>
+            </div>
+
+            <!-- Transition Screen -->
+            <div id="transition-screen" class="screen hidden">
+                <h2 id="instruction-text"></h2>
+            </div>
+
+            <!-- Playing Screen -->
+            <div id="playing-screen" class="screen hidden">
+                <!-- Microgame content injected here -->
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="gameover-screen" class="screen hidden">
+                <h1>GAME OVER</h1>
+                <p id="final-score"></p>
+                <button id="restart-button">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- Timer Bar -->
+        <div id="timer-container">
+            <div id="timer-bar"></div>
+        </div>
+    </div>
+
+    <!-- Core Types -->
+    <script src="core/types.js"></script>
+
+    <!-- Microgames (loaded before manager) -->
+    <script src="microgames/clickTheCircle.js"></script>
+    <script src="microgames/dodgeTheBlock.js"></script>
+    <script src="microgames/mashTheKey.js"></script>
+    <script src="microgames/dontClick.js"></script>
+    <script src="microgames/dragToTarget.js"></script>
+    <script src="microgames/catchTheFalling.js"></script>
+
+    <!-- Engine -->
+    <script src="engine/microgameManager.js"></script>
+    <script src="engine/gameEngine.js"></script>
+</body>
+</html>
