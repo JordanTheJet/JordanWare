@@ -67,6 +67,17 @@ func _setup_ui_references() -> void:
 	transition_screen = ui_layer.get_node_or_null("TransitionScreen")
 	game_over_screen = ui_layer.get_node_or_null("GameOverScreen")
 
+	# Connect button signals
+	if title_screen:
+		var start_button = title_screen.get_node_or_null("CenterContainer/VBoxContainer/StartButton")
+		if start_button:
+			start_button.pressed.connect(on_start_button_pressed)
+
+	if game_over_screen:
+		var restart_button = game_over_screen.get_node_or_null("CenterContainer/VBoxContainer/RestartButton")
+		if restart_button:
+			restart_button.pressed.connect(on_restart_button_pressed)
+
 
 func _process(delta: float) -> void:
 	match current_state:

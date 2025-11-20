@@ -60,7 +60,6 @@ theme_override_font_sizes/font_size = 24
 text = "Tier: 1"
 
 [node name="TitleScreen" type="Control" parent="UILayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
