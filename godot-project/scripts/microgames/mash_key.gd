@@ -16,7 +16,7 @@ var key_label: Label
 func _define_difficulty_tiers() -> void:
 	microgame_id = "mash_key"
 	microgame_name = "Mash the Key"
-	instructions = "MASH THE KEY!"
+	instructions = "MASH!"
 
 	difficulty_tiers = [
 		{

@@ -106,6 +106,8 @@ func _win_game() -> void:
 
 	has_completed = true
 	is_active = false
+	_show_result_animation(true)
+	await get_tree().create_timer(0.5).timeout
 	game_won.emit()
 
 
@@ -116,6 +118,8 @@ func _lose_game() -> void:
 
 	has_completed = true
 	is_active = false
+	_show_result_animation(false)
+	await get_tree().create_timer(0.5).timeout
 	game_lost.emit()
 
 
@@ -144,6 +148,75 @@ func get_max_tier() -> int:
 		if config.tier > max_tier:
 			max_tier = config.tier
 	return max_tier
+
+
+## Helper: Check if mouse click is inside an area
+func _is_click_in_area(click_pos: Vector2, area: Area2D) -> bool:
+	if not is_instance_valid(area):
+		return false
+
+	# Get collision shape
+	for child in area.get_children():
+		if child is CollisionShape2D:
+			var collision = child as CollisionShape2D
+			var shape = collision.shape
+
+			if shape is CircleShape2D:
+				var circle = shape as CircleShape2D
+				var dist = area.position.distance_to(click_pos)
+				return dist <= circle.radius
+			elif shape is RectangleShape2D:
+				var rect_shape = shape as RectangleShape2D
+				var half_size = rect_shape.size / 2.0
+				var rect = Rect2(area.position - half_size, rect_shape.size)
+				return rect.has_point(click_pos)
+
+	return false
+
+
+## Show universal win/lose animation
+func _show_result_animation(won: bool) -> void:
+	# Create fullscreen overlay
+	var overlay = ColorRect.new()
+	overlay.size = Vector2(1280, 720)
+	overlay.position = Vector2.ZERO
+	overlay.color = Color.GREEN if won else Color.RED
+	overlay.color.a = 0.0
+	overlay.z_index = 1000
+	add_child(overlay)
+
+	# Create result text
+	var result_label = Label.new()
+	result_label.text = "SUCCESS!" if won else "FAILED!"
+	result_label.position = Vector2(440, 300)
+	result_label.add_theme_font_size_override("font_size", 96)
+	result_label.add_theme_color_override("font_color", Color.WHITE)
+	result_label.modulate.a = 0.0
+	result_label.z_index = 1001
+	add_child(result_label)
+
+	# Animate flash
+	var tween = create_tween()
+	tween.set_parallel(true)
+
+	# Flash overlay
+	tween.tween_property(overlay, "color:a", 0.7, 0.1)
+	tween.tween_property(overlay, "color:a", 0.0, 0.4).set_delay(0.1)
+
+	# Fade in text
+	tween.tween_property(result_label, "modulate:a", 1.0, 0.15)
+
+	# Scale text
+	result_label.scale = Vector2(0.5, 0.5)
+	tween.tween_property(result_label, "scale", Vector2(1.2, 1.2), 0.2)
+	tween.tween_property(result_label, "scale", Vector2(1.0, 1.0), 0.1).set_delay(0.2)
+
+	# Clean up after animation
+	await get_tree().create_timer(0.5).timeout
+	if is_instance_valid(overlay):
+		overlay.queue_free()
+	if is_instance_valid(result_label):
+		result_label.queue_free()
 
 
 ## Clean up when microgame is removed

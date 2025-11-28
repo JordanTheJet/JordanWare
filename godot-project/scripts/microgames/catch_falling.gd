@@ -18,7 +18,7 @@ var counter_label: Label
 func _define_difficulty_tiers() -> void:
 	microgame_id = "catch_falling"
 	microgame_name = "Catch the Falling"
-	instructions = "CATCH THEM ALL!"
+	instructions = "CATCH!"
 
 	difficulty_tiers = [
 		{

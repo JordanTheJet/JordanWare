@@ -13,7 +13,7 @@ var has_clicked: bool = false
 func _define_difficulty_tiers() -> void:
 	microgame_id = "click_circle"
 	microgame_name = "Click the Circle"
-	instructions = "CLICK THE CIRCLE!"
+	instructions = "CLICK IT!"
 
 	difficulty_tiers = [
 		{
@@ -55,6 +55,7 @@ func _setup_game() -> void:
 	# Create circle
 	circle = Area2D.new()
 	circle.position = Vector2(640, 360)  # Center of screen
+	circle.input_pickable = true  # IMPORTANT: Enable input detection
 
 	var collision = CollisionShape2D.new()
 	var shape = CircleShape2D.new()

@@ -16,7 +16,7 @@ var target_velocity: Vector2 = Vector2.ZERO
 func _define_difficulty_tiers() -> void:
 	microgame_id = "drag_target"
 	microgame_name = "Drag to Target"
-	instructions = "DRAG TO TARGET!"
+	instructions = "DRAG!"
 
 	difficulty_tiers = [
 		{
@@ -59,6 +59,13 @@ func _define_difficulty_tiers() -> void:
 
 
 func _setup_game() -> void:
+	# Create instruction
+	var instruction = Label.new()
+	instruction.text = "DRAG TO TARGET!"
+	instruction.position = Vector2(480, 50)
+	instruction.add_theme_font_size_override("font_size", 40)
+	add_child(instruction)
+
 	# Create target
 	target = Area2D.new()
 	target.position = Vector2(640, 360)
@@ -76,6 +83,7 @@ func _setup_game() -> void:
 
 	# Create draggable
 	draggable = Area2D.new()
+	draggable.input_pickable = true
 	draggable.position = Vector2(400, 360)
 
 	var drag_collision = CollisionShape2D.new()
@@ -88,6 +96,7 @@ func _setup_game() -> void:
 	drag_sprite.color = Color.DODGER_BLUE
 	drag_sprite.position = Vector2(-30, -30)
 	drag_sprite.size = Vector2(60, 60)
+	drag_sprite.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't block Area2D input
 	draggable.add_child(drag_sprite)
 
 	draggable.input_event.connect(_on_draggable_input)

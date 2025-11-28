@@ -14,42 +14,42 @@ var has_lost: bool = false
 func _define_difficulty_tiers() -> void:
 	microgame_id = "dodge_block"
 	microgame_name = "Dodge the Block"
-	instructions = "DODGE THE BLOCKS!"
+	instructions = "DODGE!"
 
 	difficulty_tiers = [
 		{
 			"tier": 1,
-			"time_limit": 4.0,
+			"time_limit": 5.0,
 			"parameters": {
-				"block_speed": 150.0,
+				"block_speed": 300.0,
 				"block_count": 3,
 				"player_size": 40.0
 			}
 		},
 		{
 			"tier": 2,
-			"time_limit": 3.5,
+			"time_limit": 5.0,
 			"parameters": {
-				"block_speed": 250.0,
-				"block_count": 5,
+				"block_speed": 400.0,
+				"block_count": 4,
 				"player_size": 35.0
 			}
 		},
 		{
 			"tier": 3,
-			"time_limit": 3.0,
+			"time_limit": 5.0,
 			"parameters": {
-				"block_speed": 350.0,
-				"block_count": 7,
+				"block_speed": 500.0,
+				"block_count": 5,
 				"player_size": 30.0
 			}
 		},
 		{
 			"tier": 4,
-			"time_limit": 2.5,
+			"time_limit": 5.0,
 			"parameters": {
-				"block_speed": 500.0,
-				"block_count": 9,
+				"block_speed": 600.0,
+				"block_count": 6,
 				"player_size": 25.0
 			}
 		}
@@ -57,6 +57,13 @@ func _define_difficulty_tiers() -> void:
 
 
 func _setup_game() -> void:
+	# Create instruction
+	var instruction = Label.new()
+	instruction.text = "MOVE MOUSE!"
+	instruction.position = Vector2(510, 50)
+	instruction.add_theme_font_size_override("font_size", 48)
+	add_child(instruction)
+
 	# Create player
 	player = Area2D.new()
 	player.position = Vector2(640, 680)

@@ -16,6 +16,20 @@ class_name MicrogameManager
 	"res://scenes/microgames/dont_click.tscn",
 	"res://scenes/microgames/drag_target.tscn",
 	"res://scenes/microgames/catch_falling.tscn",
+	"res://scenes/microgames/match_color.tscn",
+	"res://scenes/microgames/stop_timer.tscn",
+	"res://scenes/microgames/avoid_obstacles.tscn",
+	"res://scenes/microgames/sequence_memory.tscn",
+	"res://scenes/microgames/spin_arrow.tscn",
+	"res://scenes/microgames/count_objects.tscn",
+	"res://scenes/microgames/type_word.tscn",
+	"res://scenes/microgames/find_different.tscn",
+	"res://scenes/microgames/balance_bar.tscn",
+	"res://scenes/microgames/pop_balloon.tscn",
+	"res://scenes/microgames/aim_target.tscn",
+	"res://scenes/microgames/sort_items.tscn",
+	"res://scenes/microgames/connect_dots.tscn",
+	"res://scenes/microgames/shake_screen.tscn",
 ]
 
 ## Registered microgame resources
@@ -47,11 +61,18 @@ func _load_microgames() -> void:
 			instance.queue_free()
 			continue
 
+		# _ready() is not called until the node is added to the tree
+		# So we need to add it temporarily to trigger _ready()
+		add_child(instance)
+
 		# Validate required fields
 		if instance.microgame_id.is_empty() or instance.microgame_name.is_empty():
-			push_warning("Microgame missing required fields: %s" % scene_path)
+			push_warning("Microgame missing required fields: %s (id='%s', name='%s')" % [scene_path, instance.microgame_id, instance.microgame_name])
 			instance.queue_free()
 			continue
+
+		# Remove from tree before freeing
+		remove_child(instance)
 
 		instance.queue_free()
 		registered_microgames.append(scene)
@@ -72,8 +93,10 @@ func select_microgame(tier: int) -> MicrogameBase:
 
 	for scene in registered_microgames:
 		var temp_instance = scene.instantiate() as MicrogameBase
+		add_child(temp_instance)  # Need to add to tree to trigger _ready()
 		if temp_instance.get_max_tier() >= tier:
 			eligible_scenes.append(scene)
+		remove_child(temp_instance)
 		temp_instance.queue_free()
 
 	if eligible_scenes.is_empty():

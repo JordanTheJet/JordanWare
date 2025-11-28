@@ -11,7 +11,7 @@ var distractors: Array[Button] = []
 func _define_difficulty_tiers() -> void:
 	microgame_id = "dont_click"
 	microgame_name = "Don't Click"
-	instructions = "DON'T CLICK!"
+	instructions = "RESIST!"
 
 	difficulty_tiers = [
 		{
@@ -70,6 +70,23 @@ func _on_game_start() -> void:
 		_create_distractor(moving)
 
 
+# Override _process to make timeout = win (survival game)
+func _process(delta: float) -> void:
+	if not is_active or has_completed:
+		return
+
+	# Update timer
+	time_remaining -= delta
+
+	# Win if survived without clicking
+	if time_remaining <= 0:
+		_win_game()
+		return
+
+	# Update game-specific logic
+	_update_game(delta)
+
+
 func _update_game(delta: float) -> void:
 	# Move distractors if applicable
 	var moving = current_parameters.moving
@@ -112,13 +129,14 @@ func _on_distractor_clicked() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not is_active or has_completed:
+	# Only process input when game is actively running
+	if not is_active or has_completed or has_clicked:
 		return
 
-	if event is InputEventMouseButton and event.pressed:
-		if not has_clicked:
-			has_clicked = true
-			_lose_game()
+	# Only detect mouse button down events (not releases)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		has_clicked = true
+		_lose_game()
 
 
 func cleanup() -> void:

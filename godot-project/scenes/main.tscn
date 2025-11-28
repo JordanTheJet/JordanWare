@@ -164,3 +164,78 @@ text = "Final Score: 0"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "PLAY AGAIN"
+
+[node name="DebugScreen" type="Control" parent="UILayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DebugPanel" type="Panel" parent="UILayer/DebugScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/DebugScreen/DebugPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameButtonsPanel" type="Panel" parent="UILayer/DebugScreen/DebugPanel/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/DebugScreen/DebugPanel/HBoxContainer/GameButtonsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UILayer/DebugScreen/DebugPanel/HBoxContainer/GameButtonsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "QA TEST GAMES"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="UILayer/DebugScreen/DebugPanel/HBoxContainer/GameButtonsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="GameButtonsContainer" type="VBoxContainer" parent="UILayer/DebugScreen/DebugPanel/HBoxContainer/GameButtonsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UILayer/DebugScreen/DebugPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DebugLabel" type="RichTextLabel" parent="UILayer/DebugScreen/DebugPanel/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Debug Info Loading..."
+fit_content = true
+scroll_active = false
