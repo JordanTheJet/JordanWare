@@ -5,6 +5,7 @@ extends MicrogameBase
 var target: Area2D
 var first_tap_time: float = -1.0
 var max_time_between_taps: float = 1.0
+var visual_feedback_tween: Tween
 
 func _define_difficulty_tiers() -> void:
 	microgame_id = "double_tap"
@@ -92,10 +93,17 @@ func _input(event: InputEvent) -> void:
 				var current_time = Time.get_ticks_msec() / 1000.0
 
 				if first_tap_time < 0:
-					# First tap
+					# First tap - provide visual feedback
 					first_tap_time = current_time
 					var visual = target.get_child(0) as ColorRect
 					visual.color = Color.YELLOW
+
+					# Add scale pulse feedback
+					if visual_feedback_tween:
+						visual_feedback_tween.kill()
+					visual_feedback_tween = create_tween()
+					visual_feedback_tween.tween_property(target, "scale", Vector2(1.2, 1.2), 0.1)
+					visual_feedback_tween.tween_property(target, "scale", Vector2(1.0, 1.0), 0.1)
 				else:
 					# Second tap
 					var time_diff = current_time - first_tap_time
@@ -110,6 +118,9 @@ func _update_game(_delta: float) -> void:
 	if first_tap_time >= 0:
 		var current_time = Time.get_ticks_msec() / 1000.0
 		if current_time - first_tap_time > max_time_between_taps:
+			# Reset tap state and visual feedback
 			first_tap_time = -1.0
-			var visual = target.get_child(0) as ColorRect
-			visual.color = Color.ORANGE
+			if is_instance_valid(target):
+				target.scale = Vector2(1.0, 1.0)
+				var visual = target.get_child(0) as ColorRect
+				visual.color = Color.ORANGE

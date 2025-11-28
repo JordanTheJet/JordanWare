@@ -71,7 +71,7 @@ func _on_game_start() -> void:
 			shape1.color = Color.BLUE
 			shape2.color = Color.BLUE
 	elif difficulty == "color":
-		# Similar colors
+		# Similar colors - increased difference for better visibility
 		var base_color = Color(randf(), randf(), randf())
 		shape1.color = base_color
 		shape1.size = Vector2(150, 150)
@@ -80,7 +80,8 @@ func _on_game_start() -> void:
 		if are_same:
 			shape2.color = base_color
 		else:
-			shape2.color = Color(base_color.r * 0.7, base_color.g * 1.3, base_color.b * 0.8)
+			# Increased color difference multipliers for clearer distinction
+			shape2.color = Color(base_color.r * 0.5, base_color.g * 1.5, base_color.b * 0.6)
 	else:  # size
 		var base_size = 150.0
 		shape1.size = Vector2(base_size, base_size)

@@ -59,9 +59,9 @@ func _on_game_start() -> void:
 	target.add_child(visual)
 
 	counter_label = Label.new()
-	counter_label.text = str(required_clicks)
-	counter_label.position = Vector2(-40, -40)
-	counter_label.add_theme_font_size_override("font_size", 72)
+	counter_label.text = "0 / %d" % required_clicks
+	counter_label.position = Vector2(-60, -40)
+	counter_label.add_theme_font_size_override("font_size", 56)
 	counter_label.add_theme_color_override("font_color", Color.WHITE)
 	target.add_child(counter_label)
 
@@ -82,8 +82,8 @@ func _input(event: InputEvent) -> void:
 			if _is_click_in_area(click_pos, target):
 				click_count += 1
 
-				# Update counter
-				counter_label.text = str(required_clicks - click_count)
+				# Update counter to show progress (X / Y format)
+				counter_label.text = "%d / %d" % [click_count, required_clicks]
 
 				# Visual feedback
 				var visual = target.get_child(0) as ColorRect

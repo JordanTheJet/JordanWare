@@ -35,7 +35,7 @@ func _define_difficulty_tiers() -> void:
 			"time_limit": 3.0,
 			"parameters": {
 				"fill_time": 1.0,
-				"click_window": 1.0
+				"click_window": 1.5  # Increased from 1.0 for more forgiving timing
 			}
 		}
 	]

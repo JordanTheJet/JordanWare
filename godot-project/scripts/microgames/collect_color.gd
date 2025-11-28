@@ -107,7 +107,9 @@ func _update_game(delta: float) -> void:
 				item_data.area.position.x = randf_range(50, 1230)
 
 func _spawn_item() -> void:
-	var is_target = falling_items.filter(func(d): return d.is_target).size() < current_parameters.required_count
+	# Count existing target items to ensure we spawn the correct number
+	var current_target_count = falling_items.filter(func(d): return d.is_target).size()
+	var is_target = current_target_count < current_parameters.required_count
 
 	var item = Area2D.new()
 	item.position = Vector2(randf_range(50, 1230), -50)

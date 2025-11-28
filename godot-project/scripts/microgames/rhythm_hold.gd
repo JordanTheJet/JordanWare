@@ -103,16 +103,19 @@ func _update_game(delta: float) -> void:
 	# Check if holding mouse button
 	is_holding = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 
-	# Check each beat marker
+	# Check each beat marker with grace period for timing
 	var any_in_zone = false
+	var grace_pixels = 75.0  # ~75ms grace period at 200 scroll_speed
+
 	for marker in beat_markers:
 		if is_instance_valid(marker):
-			var marker_center_x = marker.position.x + marker.size.x / 2
-			var zone_left = target_zone.position.x
-			var zone_right = target_zone.position.x + target_zone.size.x
+			var marker_left = marker.position.x
+			var marker_right = marker.position.x + marker.size.x
+			var zone_left = target_zone.position.x - grace_pixels
+			var zone_right = target_zone.position.x + target_zone.size.x + grace_pixels
 
-			# Check if marker is in zone
-			if marker_center_x > zone_left and marker_center_x < zone_right:
+			# Check if any part of marker overlaps with zone (with grace period)
+			if marker_right > zone_left and marker_left < zone_right:
 				any_in_zone = true
 				break
 

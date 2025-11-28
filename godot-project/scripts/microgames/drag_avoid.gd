@@ -121,8 +121,10 @@ func _update_game(delta: float) -> void:
 	if is_dragging:
 		draggable.position = get_viewport().get_mouse_position()
 
-		# Check if reached goal
-		if draggable.position.distance_to(goal.position) < 50 and not has_won:
+		# Check if reached goal - calculate based on goal size dynamically
+		var goal_visual = goal.get_child(0) as ColorRect
+		var goal_radius = goal_visual.size.x / 2.0  # Use half the goal width as radius
+		if draggable.position.distance_to(goal.position) < goal_radius and not has_won:
 			has_won = true
 			_win_game()
 

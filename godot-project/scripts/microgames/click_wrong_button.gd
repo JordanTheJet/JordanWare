@@ -83,7 +83,8 @@ func _on_game_start() -> void:
 		buttons.append(button)
 
 func _update_game(delta: float) -> void:
-	# Pulse buttons to tempt clicking
+	# Pulse buttons to tempt clicking - scales between 0.9x and 1.1x
+	# pulse_speed determines cycles per second (1.0 = 1 cycle/sec, 2.0 = 2 cycles/sec)
 	var pulse_scale = 1.0 + sin(Time.get_ticks_msec() * 0.001 * current_parameters.pulse_speed * PI) * 0.1
 
 	for button in buttons:
