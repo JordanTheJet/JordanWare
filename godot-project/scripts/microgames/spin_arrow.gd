@@ -134,22 +134,30 @@ func _check_result() -> void:
 	while arrow_angle >= 360.0:
 		arrow_angle -= 360.0
 
-	# Add small tolerance (2 degrees) to account for visual perception
-	var tolerance = 2.0
+	# Add larger tolerance (5 degrees) to account for visual perception and fast spinning
+	var tolerance = 5.0
 	var check_start = target_start - tolerance
 	var check_end = target_end + tolerance
+
+	# Normalize check bounds
+	if check_start < 0:
+		check_start += 360.0
+	if check_end > 360.0:
+		check_end -= 360.0
 
 	# Check if arrow is in target zone
 	var in_target = false
 
-	if check_end <= 360.0:
-		in_target = arrow_angle >= check_start and arrow_angle <= check_end
+	# Handle wrapping cases
+	if check_start > check_end:
+		# Range wraps around 0
+		in_target = arrow_angle >= check_start or arrow_angle <= check_end
 	else:
-		# Target wraps around 0
-		in_target = arrow_angle >= check_start or arrow_angle <= (check_end - 360.0)
+		# Normal range
+		in_target = arrow_angle >= check_start and arrow_angle <= check_end
 
 	# Debug output
-	print("Arrow angle: ", arrow_angle, " Target: ", target_start, "-", target_end, " In target: ", in_target)
+	print("Arrow angle: ", arrow_angle, " Target: ", target_start, "-", target_end, " (with tolerance: ", check_start, "-", check_end, ") In target: ", in_target)
 
 	if in_target:
 		_win_game()

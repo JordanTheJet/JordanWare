@@ -84,7 +84,7 @@ func _setup_game() -> void:
 
 	# Create counter
 	counter_label = Label.new()
-	counter_label.position = Vector2(580, 20)
+	counter_label.position = Vector2(520, 80)
 	counter_label.add_theme_font_size_override("font_size", 32)
 	add_child(counter_label)
 

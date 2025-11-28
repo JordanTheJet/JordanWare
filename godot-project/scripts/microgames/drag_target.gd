@@ -111,6 +111,9 @@ func _on_game_start() -> void:
 	target_size = current_parameters.target_size
 	is_moving_target = current_parameters.moving
 
+	# Reset draggable position
+	draggable.position = Vector2(400, 360)
+
 	# Position target
 	var distance = current_parameters.target_distance
 	target.position = Vector2(640 + distance, 360)
@@ -146,11 +149,16 @@ func _update_game(delta: float) -> void:
 
 
 func _on_draggable_input(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if not is_active or has_completed:
+		return
+
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			is_dragging = true
+			print("Started dragging")
 		elif not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			is_dragging = false
+			print("Stopped dragging")
 
 
 func _on_draggable_entered_target(_area: Area2D) -> void:
