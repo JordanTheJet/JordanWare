@@ -59,6 +59,7 @@ class_name MicrogameManager
 	"res://scenes/microgames/rapid_click.tscn",
 	"res://scenes/microgames/rhythm_hold.tscn",
 	"res://scenes/microgames/charge_release.tscn",
+	"res://scenes/microgames/tap_circles.tscn",
 ]
 
 ## Registered microgame resources
