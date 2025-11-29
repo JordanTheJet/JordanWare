@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Swap tiles to make three in a row
+## Three in Row - Make three match
 
 var grid: Array[Area2D] = []
 var grid_colors: Array[Color] = []

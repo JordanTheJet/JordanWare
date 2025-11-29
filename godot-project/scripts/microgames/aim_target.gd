@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Aim Target Microgame
-## Objective: Click when the crosshair is over the target
-## Difficulty: Faster movement, smaller target at higher tiers
+## Aim Target - Aim and click target
 
 var crosshair: ColorRect
 var target: ColorRect

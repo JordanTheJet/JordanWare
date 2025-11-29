@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Hold to charge, release in green zone
+## Charge Release - Charge and release
 
 var charge_bar: ColorRect
 var charge_fill: ColorRect

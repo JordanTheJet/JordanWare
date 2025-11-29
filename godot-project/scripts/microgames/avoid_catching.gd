@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Avoid catching falling objects - move basket to dodge them
+## Avoid Catching - Dodge falling objects
 
 var basket: Area2D
 var basket_shape: ColorRect

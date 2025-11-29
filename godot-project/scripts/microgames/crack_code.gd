@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Guess the code with limited tries
+## Crack Code - Guess the code
 
 var code: Array[int] = []
 var current_guess: Array[int] = []

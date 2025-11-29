@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Click the Circle Microgame
-## Objective: Click the shrinking circle before time runs out
-## Difficulty: Circle starts smaller and shrinks faster at higher tiers
+## Click Circle - Click shrinking circle
 
 var circle: Area2D
 var circle_size: float = 0.0

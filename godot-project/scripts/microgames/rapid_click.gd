@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click target many times quickly
+## Rapid Click - Click many times
 
 var target: Area2D
 var click_count: int = 0

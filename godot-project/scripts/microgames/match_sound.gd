@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click button that matches audio tone
+## Match Sound - Match the tone
 
 var buttons: Array[Dictionary] = []  # {area: Area2D, pitch: float}
 var correct_pitch: float = 1.0

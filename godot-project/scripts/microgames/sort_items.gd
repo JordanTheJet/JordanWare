@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Sort Items Microgame
-## Objective: Drag items to matching color zones
-## Difficulty: More items, more colors at higher tiers
+## Sort Items - Sort by category
 
 var items: Array[ColorRect] = []
 var zones: Array[ColorRect] = []

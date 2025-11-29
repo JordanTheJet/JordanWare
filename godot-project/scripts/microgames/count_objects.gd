@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Count Objects Microgame
-## Objective: Count the objects that appear and click the correct number
-## Difficulty: More objects, faster appearance at higher tiers
+## Count Objects - Count and click
 
 var objects: Array[ColorRect] = []
 var correct_count: int = 0

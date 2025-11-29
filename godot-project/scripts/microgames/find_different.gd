@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Find Different Microgame
-## Objective: Click the one object that's different from the others
-## Difficulty: More objects, subtler differences at higher tiers
+## Find Different - Find the odd one
 
 var objects: Array[Area2D] = []
 var has_clicked: bool = false

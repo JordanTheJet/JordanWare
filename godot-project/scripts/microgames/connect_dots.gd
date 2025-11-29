@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Connect Dots Microgame
-## Objective: Click dots in numerical order
-## Difficulty: More dots, less organized layout at higher tiers
+## Connect Dots - Click in order
 
 var dots: Array[Dictionary] = []
 var current_number: int = 1

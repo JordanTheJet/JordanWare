@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Drag to Target Microgame
-## Objective: Drag the object to the target zone
-## Difficulty: Smaller target, longer distance, moving target at higher tiers
+## Drag Target - Drag to target
 
 var draggable: Area2D
 var target: Area2D
@@ -84,6 +82,8 @@ func _setup_game() -> void:
 	# Create draggable
 	draggable = Area2D.new()
 	draggable.input_pickable = true
+	draggable.monitorable = true
+	draggable.monitoring = true
 	draggable.position = Vector2(400, 360)
 
 	var drag_collision = CollisionShape2D.new()

@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Sequence Memory Microgame
-## Objective: Repeat the sequence of buttons shown
-## Difficulty: Longer sequences, faster display at higher tiers
+## Sequence Memory - Repeat the sequence
 
 var buttons: Array[Button] = []
 var sequence: Array[int] = []

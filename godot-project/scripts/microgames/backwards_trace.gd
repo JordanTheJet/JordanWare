@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Trace the path backwards from END to START
+## Backwards Trace - Trace path backwards
 
 var path_points: Array[Vector2] = []
 var current_point_index: int = -1

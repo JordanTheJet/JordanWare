@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Pop Balloon Microgame
-## Objective: Click the balloon before it floats away
-## Difficulty: Smaller balloon, faster float at higher tiers
+## Pop Balloon - Pop all balloons
 
 var balloon: Area2D
 var balloon_y: float = 600.0

@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Mash the Key Microgame
-## Objective: Press the specified key rapidly to fill the bar
-## Difficulty: More presses required, specific keys, faster decay at higher tiers
+## Mash Key - Tap key rapidly
 
 var progress: float = 0.0
 var required_presses: int = 0

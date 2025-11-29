@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Break the pattern - click a button NOT in the flashing sequence
+## Break Sequence - Click wrong button
 
 var buttons: Array[Area2D] = []
 var pattern: Array[int] = []

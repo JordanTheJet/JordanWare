@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Dodge the Block Microgame
-## Objective: Dodge falling blocks by moving the mouse
-## Difficulty: More blocks, faster speed, smaller player at higher tiers
+## Dodge Block - Dodge falling blocks
 
 var player: Area2D
 var blocks: Array[Area2D] = []

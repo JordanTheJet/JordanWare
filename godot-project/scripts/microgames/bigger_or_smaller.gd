@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click the bigger circle
+## Bigger or Smaller - Click bigger circle
 
 var circle1: Area2D
 var circle2: Area2D

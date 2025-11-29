@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Complete the pattern by clicking the correct choice
+## Complete Pattern - Finish the pattern
 
 var pattern_display: Array[ColorRect] = []
 var choice_buttons: Array[Area2D] = []

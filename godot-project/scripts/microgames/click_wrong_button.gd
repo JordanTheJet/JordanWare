@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Don't click any buttons - restraint-based game
+## Click Wrong Button - Don't click any
 
 var buttons: Array[Area2D] = []
 

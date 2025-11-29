@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Stop Timer Microgame
-## Objective: Stop the timer exactly at the target number
-## Difficulty: Faster timer, smaller target range at higher tiers
+## Stop Timer - Stop at target time
 
 var timer_value: float = 0.0
 var timer_speed: float = 1.0

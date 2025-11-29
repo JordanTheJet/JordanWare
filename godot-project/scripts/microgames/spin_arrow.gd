@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Spin Arrow Microgame
-## Objective: Stop the spinning arrow in the target zone
-## Difficulty: Faster spin, smaller target zone at higher tiers
+## Spin Arrow - Stop in zone
 
 var arrow: Node2D
 var rotation_speed: float = 2.0

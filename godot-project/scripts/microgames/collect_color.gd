@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Collect only objects of specific color while avoiding others
+## Collect Color - Collect blue only
 
 var basket: Area2D
 var basket_shape: ColorRect

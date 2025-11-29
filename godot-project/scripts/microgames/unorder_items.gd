@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Scramble ordered items by dragging them
+## Unorder Items - Scramble the order
 
 var items: Array[Dictionary] = []  # {area: Area2D, original_index: int, current_index: int}
 var dragging_item: Dictionary = {}

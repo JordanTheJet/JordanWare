@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Create a mirror image of the pattern on the left
+## Mirror Match - Create mirror image
 
 var left_grid: Array[ColorRect] = []
 var right_grid: Array[Area2D] = []

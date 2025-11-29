@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Don't Click Microgame
-## Objective: DON'T click anywhere! (negation challenge)
-## Difficulty: More distractors, moving distractors at higher tiers
+## Don't Click - Don't click anything
 
 var has_clicked: bool = false
 var distractors: Array[Button] = []

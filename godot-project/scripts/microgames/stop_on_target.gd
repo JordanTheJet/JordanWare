@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click when the sweeping line is in the green zone
+## Stop on Target - Click in zone
 
 var sweep_line: ColorRect
 var green_zone: ColorRect

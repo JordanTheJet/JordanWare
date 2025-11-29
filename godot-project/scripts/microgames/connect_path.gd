@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click tiles to create path from start to end
+## Connect Path - Make path to end
 
 var tiles: Array[Area2D] = []
 var start_index: int = 0

@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Tap all circles before time runs out
+## Tap Circles - Tap all circles
 
 var circles: Array[Area2D] = []
 var tapped_count: int = 0

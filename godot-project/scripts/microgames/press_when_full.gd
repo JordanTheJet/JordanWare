@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click when progress bar reaches 100%
+## Press When Full - Click when full
 
 var progress_rect: ColorRect
 var fill_amount: float = 0.0

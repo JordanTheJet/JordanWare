@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Move slider away from target position
+## Move Slider Away - Move away from target
 
 var slider_handle: Area2D
 var slider_track: ColorRect

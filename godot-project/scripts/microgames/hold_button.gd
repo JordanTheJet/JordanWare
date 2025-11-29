@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Hold mouse on target for required duration
+## Hold Button - Hold on target
 
 var target: Area2D
 var hold_duration: float = 2.0

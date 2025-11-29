@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click any button that does NOT match the central color
+## Wrong Color Match - Click wrong color
 
 var center_display: ColorRect
 var buttons: Array[Area2D] = []

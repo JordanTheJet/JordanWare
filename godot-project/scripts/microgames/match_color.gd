@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Match Color Microgame
-## Objective: Click the shape that matches the target color
-## Difficulty: More shapes, faster time, similar colors at higher tiers
+## Match Color - Click matching color
 
 var target_color: Color
 var shapes: Array[Area2D] = []

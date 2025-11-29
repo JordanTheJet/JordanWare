@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Drag object from start to goal while avoiding danger zones
+## Drag Avoid - Drag without touching
 
 var draggable: Area2D
 var goal: Area2D

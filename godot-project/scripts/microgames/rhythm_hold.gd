@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Hold button while beats scroll, release between beats
+## Rhythm Hold - Hold the beat
 
 var beat_markers: Array[ColorRect] = []
 var target_zone: ColorRect

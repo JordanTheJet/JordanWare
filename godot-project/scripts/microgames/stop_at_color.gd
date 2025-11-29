@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click when rectangle is green - color cycling game
+## Stop at Color - Click on green
 
 var color_rect: ColorRect
 var current_color_idx: int = 0

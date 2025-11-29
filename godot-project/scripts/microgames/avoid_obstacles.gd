@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Avoid Obstacles Microgame
-## Objective: Move left/right to avoid falling obstacles
-## Difficulty: More obstacles, faster fall speed at higher tiers
+## Avoid Obstacles - Move to avoid
 
 var player: ColorRect
 var player_x: float = 640.0

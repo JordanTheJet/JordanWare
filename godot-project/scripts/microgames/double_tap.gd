@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Double tap the target quickly
+## Double Tap - Double click fast
 
 var target: Area2D
 var first_tap_time: float = -1.0

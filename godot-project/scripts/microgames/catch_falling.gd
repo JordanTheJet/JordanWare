@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Catch the Falling Microgame
-## Objective: Catch the falling objects with your basket
-## Difficulty: More items to catch, faster speed, smaller basket at higher tiers
+## Catch Falling - Catch with basket
 
 var basket: Area2D
 var falling_items: Array[Area2D] = []

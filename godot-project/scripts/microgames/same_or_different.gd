@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Two shapes appear - click if they're same or different
+## Same or Different - Same or different?
 
 var shape1: ColorRect
 var shape2: ColorRect

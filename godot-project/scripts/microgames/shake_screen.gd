@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Shake Screen Microgame
-## Objective: Shake mouse or mash keys to fill the bar
-## Difficulty: Higher requirement, faster decay at higher tiers
+## Shake Screen - Shake device/mouse
 
 var shake_progress: float = 0.0
 var required_shake: float = 100.0

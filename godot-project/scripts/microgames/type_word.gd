@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Type Word Microgame
-## Objective: Type the displayed word correctly
-## Difficulty: Longer words, more similar-looking words at higher tiers
+## Type Word - Type the word
 
 var target_word: String = ""
 var typed_text: String = ""

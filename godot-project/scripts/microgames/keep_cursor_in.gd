@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Keep mouse cursor inside the shrinking box
+## Keep Cursor In - Stay in box
 
 var box: ColorRect
 var initial_size: Vector2

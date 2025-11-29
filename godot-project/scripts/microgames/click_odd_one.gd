@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Click the odd one out - find the object that's different
+## Click Odd One - Find different one
 
 var objects: Array[Area2D] = []
 var odd_one_index: int = -1

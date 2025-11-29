@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Move character up/down to dodge obstacles coming from sides
+## Dodge Vertical - Dodge up and down
 
 var player: Area2D
 var player_shape: ColorRect

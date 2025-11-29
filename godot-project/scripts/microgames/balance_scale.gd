@@ -1,6 +1,6 @@
 extends MicrogameBase
 
-## Balance the scale by clicking weights
+## Balance Scale - Balance with weights
 
 var scale_visual: Line2D
 var left_weight_display: Label

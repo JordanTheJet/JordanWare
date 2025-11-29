@@ -1,8 +1,6 @@
 extends MicrogameBase
 
-## Balance Bar Microgame
-## Objective: Keep the bar balanced by pressing left/right keys
-## Difficulty: Faster tilt, longer duration at higher tiers
+## Balance Bar - Balance the bar
 
 var balance: float = 0.0  # -1 (left) to 1 (right)
 var tilt_speed: float = 0.5
